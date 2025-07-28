@@ -18,7 +18,7 @@ def rename_files(folder: str = "tif_files") -> None:
         print(f"[ERROR] Папка {folder} не найдена!")
         return
 
-    supp_ext = ('.tif', '.tiff', '.jpg', '.jpeg', '.png', '.webp')
+    supp_ext = ('.tif', '.tiff', '.jpg', '.jpeg', '.png')
     renamed_count = 0
 
     for filename in os.listdir(folder):
@@ -38,4 +38,7 @@ def rename_files(folder: str = "tif_files") -> None:
     print(f"Готово. Переименовано файлов: {renamed_count}")
 
 if __name__ == "__main__":
-    rename_files()
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    target_folder = os.path.join(project_root, "tif_files")
+
+    rename_files(target_folder)
